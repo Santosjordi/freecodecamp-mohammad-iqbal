@@ -1,6 +1,6 @@
 //This will hold all the logic for reading and updating the global state with the useReducer hook and context
 
-import React from "react";
+import React, {useReducer} from "react";
 import Context from "./utils/context";
 import * as ACTIONS from './store/actions/actions';
 
@@ -17,7 +17,7 @@ const ContextState = () => {
 
     // =========== PLAIN REDUCER ==========================
 
-    const [stateReducer1, dispatchReducer1] = useReducer(Reducer1.Reducer1, Reducer1.initialState)
+    const [stateReducer1, dispatchReducer1] = useReducer(Reducer1.Reducer1, Reducer1.initialState); //this is a hook
 
     const handleDispatchTrue = () => {
         //  dispatchReducer1(type: "SUCCESS")
@@ -33,7 +33,7 @@ const ContextState = () => {
 
     // =========== Auth Reducer ==========================
 
-    const [stateAuthReducer, dispatchAuthReducer] = useReducer(AuthReducer.AuthReducer, AuthReducer.initialState)
+    const [stateAuthReducer, dispatchAuthReducer] = useReducer(AuthReducer.AuthReducer, AuthReducer.initialState); // this is also a hook
 
     const handleLogin = () => {
         dispatchAuthReducer(ACTIONS.login_success())

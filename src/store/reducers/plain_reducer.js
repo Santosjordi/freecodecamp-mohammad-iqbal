@@ -8,7 +8,7 @@ export const initialState = {
 }
 
 export const Reducer1 = (state = initialState, action) => {
-    switch (action.type){
+    switch(action.type) {
         case ACTION_TYPES.SUCCESS:
             return {
                 ...state,

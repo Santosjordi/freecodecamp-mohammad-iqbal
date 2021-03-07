@@ -7,9 +7,8 @@ export const initialState = {
     user_textSubmit: ''
 }
 
-
 export const FormReducer = (state, action) => {
-    switch (action.type) {
+    switch(action.type) {
         case ACTION_TYPES.USER_INPUT_CHANGE:
             return {
                 ...state,

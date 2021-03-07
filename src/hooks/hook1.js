@@ -11,26 +11,28 @@ import Context from '../utils/context';
 const HooksContainer1 = () => {
     const context = useContext(Context)
 
+    //const value = useState(0)[0]
+    //const setValue = useState(0)[1]
     const [value, setValue] = useState(0)
 
     const [useEffectValue, setUseEffectValue] = useState(null)
 
-    const [state, dispatch] = useReducer(Reducer1.Reducer1, Reducer1.initialState);
+    const [state, dispatch] = useReducer(Reducer1.Reducer1, Reducer1.initialState)
 
     useEffect(() => {
-        setTimeout(() => setUseEffectValue('useEffect worked'), 3000);
+        setTimeout(() => setUseEffectValue("useEffect worked"), 3000 );
     }, [value])
 
     const incrementValue = () => {
-        setValue(value +1)
+        setValue(value + 1 )
     }
 
     const decrementValue = () => {
-        setValue(value-1)
+        setValue(value - 1 )
     }
 
-    const handleUseEffectValue = () => {
-        setUseEffectValue('some string')
+    const handleuseEffectValue = () => {
+        setUseEffectValue("some string")
     }
 
     const handleDispatchTrue = () => {
@@ -48,7 +50,7 @@ const HooksContainer1 = () => {
     return (
         <div>
             <div>
-                <button onClick={() => handleUseEffectValue()}> Handle Value  </button>
+                <button onClick={() => handleuseEffectValue()}> Handle Value  </button>
                 <button onClick={() => handleDispatchTrue()}>Dispatch True </button>
                 <button onClick={() => handleDispatchFalse()}>Dispatch False </button>
                 <button onClick={() => context.dispatchContextTrue()}>Dispatch Context True </button>
@@ -58,8 +60,8 @@ const HooksContainer1 = () => {
                 <br />
                 <br />
                 {context.useContextSubmitState
-                    ? <h3>{context.useContextSubmitState}</h3>
-                    : <h3>No User text</h3>
+                    ? <h3> {context.useContextSubmitState} </h3>
+                    : <h3> No User Text </h3>
                 }
                 <br />
                 {state.stateprop1

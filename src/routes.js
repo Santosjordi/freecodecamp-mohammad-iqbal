@@ -1,7 +1,6 @@
 //Will contain all our routing logic and will have silent authentication here as well
-
 import React, { useContext, useEffect } from 'react';
-import { Router, Route, Switch, Redirect } from 'react-router';
+import { Router, Route, Switch, Link, Redirect } from 'react-router';
 import history from './utils/history';
 import Context from './utils/context';
 import AuthCheck from './utils/authcheck';
@@ -14,20 +13,23 @@ import HooksForm from './hooks/hooks_form1';
 import PrivateComponent from './hooks/privatecomponent';
 import Profile from './hooks/profile';
 
-const PrivateRoute = ({component: Component, auth}) => (
-    <Route render={props => auth === true ? <Component auth={auth} {...props} /> : <Redirect to={{pathname: '/'}}/>
-    } />
+const PrivateRoute = ({component: Component, auth }) => (
+    <Route render={props => auth === true
+        ? <Component auth={auth} {...props} />
+        : <Redirect to={{pathname:'/'}} />
+    }
+    />
 )
 
 const Routes = () => {
     const context = useContext(Context)
 
-    return (
+    return(
         <div>
-            <Router history={history}>
-                <Header/>
-                <br/>
-                <br/>
+            <Router history={history} >
+                <Header />
+                <br />
+                <br />
                 <div>
                     <Switch>
                         <Route exact path='/' component={Home} />
@@ -42,17 +44,12 @@ const Routes = () => {
                         <PrivateRoute path="/profile"
                                       auth={context.authState}
                                       component={Profile} />
-                        <Route path='/callback' render={
-                            (props) => {
-                                context.handleAuth(props);
-                                return <Callback />
-                            }
-                        } />
+                        <Route path='/callback' render={(props) => { context.handleAuth(props);
+                            return <Callback />}} />
                     </Switch>
                 </div>
             </Router>
         </div>
-    )
-}
+    )}
 
 export default Routes;

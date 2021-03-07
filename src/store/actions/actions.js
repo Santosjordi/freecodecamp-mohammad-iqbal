@@ -10,6 +10,7 @@ export const FAILURE = {
     type: ACTION_TYPES.FAILURE
 }
 
+
 export const success = () => {
     return {
         type: ACTION_TYPES.SUCCESS
@@ -34,7 +35,8 @@ export const login_failure = () => {
     }
 }
 
-export const add_profiles = (profile) => {
+
+export const add_profile = (profile) => {
     return {
         type: ACTION_TYPES.ADD_PROFILE,
         payload: profile

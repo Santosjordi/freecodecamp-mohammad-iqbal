@@ -7,38 +7,46 @@ import * as ACTIONS from '../store/actions/actions';
 import * as FormReducer from '../store/reducers/form_reducer';
 import Context from '../utils/context';
 
-const HookForm1 = () => {
+
+const HooksForm1 = () => {
     const context = useContext(Context)
 
     const [valueChange, setValueChange] = useState('')
     const [valueSubmit, setValueSubmit] = useState('')
 
-    const [state, dispatch] = useReducer(FormReducer.FormReducer, FormReducer.initialState);
+    const [state, dispatch] = useReducer(FormReducer.FormReducer,
+        FormReducer.initialState)
 
-    const handleUseStateChange = (event) => (
+    const handleuseStateChange = (event) => (
         setValueChange(event.target.value)
     );
 
-    const handleUseStateSubmit = (event) => {
+    const handleuseStateSubmit = (event) => {
         event.preventDefault();
         setValueSubmit(event.target.useState.value)
     };
 
-    const handleUseReducerChange = (event) => (
+    const handleuseReducerChange = (event) => (
         dispatch(ACTIONS.user_input_change(event.target.value))
     );
 
-    const handleUseReducerSubmit = (event) => {
+    const handleuseReducerSubmit = (event) => {
         event.preventDefault();
         dispatch(ACTIONS.user_input_submit(event.target.useReducer.value))
     };
 
     return (
         <div>
-            <form onSubmit={handleUseStateSubmit}>
-                <label>React useState:</label>
-                <input id='useState' onChange={handleUseStateChange} type='text'/>
-                <button type='submit'> Submit </button>
+            <form onSubmit={handleuseStateSubmit}>
+                <label> React useState: </label>
+                <input id="useState" onChange={handleuseStateChange} type="text" />
+                <button type="submit"> Submit </button>
+            </form>
+            <br />
+            <form onSubmit={handleuseReducerSubmit}>
+                <label> React useReducer: </label>
+                <input id="useReducer" onChange={handleuseReducerChange} type="text" />
+                <button type="submit"> Submit </button>
             </form>
             <br />
             <form onSubmit={context.useContextSubmit}>
@@ -51,6 +59,7 @@ const HookForm1 = () => {
             <h3>React useState:</h3>
             <p>Change: {valueChange}</p>
             <p>Submit: {valueSubmit}</p>
+            <br />
 
             <h3>React useReducer:</h3>
             <p>Change: {state.user_textChange}</p>
@@ -65,4 +74,4 @@ const HookForm1 = () => {
     )
 }
 
-export default HookForm1;
+export default HooksForm1;

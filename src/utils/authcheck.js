@@ -7,12 +7,13 @@ import * as ACTIONS from '../store/actions/actions';
 const AuthCheck = () => {
     const context = useContext(Context)
 
-    useEffect(()=>{
-        if (context.authObj.isAuthenticated()){
+    useEffect(() => {
+        if(context.authObj.isAuthenticated()) {
             context.handleUserLogin()
             context.handleUserAddProfile(context.authObj.userProfile)
             history.replace('/')
-        } else {
+        }
+        else {
             context.handleUserLogout()
             context.handleUserRemoveProfile()
             history.replace('/')
@@ -20,8 +21,8 @@ const AuthCheck = () => {
     }, [])
 
     return(
-        <div></div>
-    )
-}
+        <div>
+        </div>
+    )}
 
 export default AuthCheck;

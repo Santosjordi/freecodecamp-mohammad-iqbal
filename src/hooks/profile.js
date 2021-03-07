@@ -3,7 +3,6 @@
 import React, { useContext } from 'react';
 import Context from '../utils/context';
 
-
 const Profile = () => {
     const context = useContext(Context)
 
@@ -29,7 +28,6 @@ const Profile = () => {
         <div>
             <RenderProfile profile={context.authObj.userProfile} />
         </div>
-    )
-}
+    )}
 
 export default (Profile);
